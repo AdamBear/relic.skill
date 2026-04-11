@@ -93,7 +93,7 @@ relic.skill — это движок бессмертия для всего.
      也没见你改
      [发送了一个太阳的表情包]
      早点睡啊
-```text
+```
 ### 🐱 Мими · рыжая кошка · 14 jin
 
 ```text
@@ -112,7 +112,7 @@ relic.skill — это движок бессмертия для всего.
  发出低沉的呼噜声。
  体重14斤，手腕已经麻了。
  但你没有动。]
-```text
+```
 ### 🏢 Spark Studio · стартап-команда из 5 человек
 
 ```text
@@ -129,7 +129,7 @@ CTO ❯ 你上次也是这么说的
 实习生 ❯ 哈哈哈哈哈哈哈
 CTO ❯ 行吧，这个需求不合理但我可以做
      发我文档
-```text
+```
 ---
 
 ## Четырёхмерная архитектура души
@@ -151,7 +151,7 @@ CTO ❯ 行吧，这个需求不合理但我可以做
         ❤️ Эмоции (Emotion)
         Что радует, что ранит,
         как выражает любовь, как проживает конфликт
-```text
+```
 Каждый фрагмент информации помечается уровнем доказательности:
 
 - `verbatim` — точные слова, без единого изменения
@@ -169,12 +169,12 @@ CTO ❯ 行吧，这个需求不合理但我可以做
 ```bash
 mkdir -p .claude/skills
 git clone https://github.com/Ylsssq926/relic.skill .claude/skills/relic
-```text
+```
 ### Способ 2: глобальная установка (доступно во всех проектах)
 
 ```bash
 git clone https://github.com/Ylsssq926/relic.skill ~/.claude/skills/relic
-```text
+```
 ### Способ 3: другие IDE / агенты
 
 relic.skill основан на открытом стандарте SKILL.md и совместим с любым ИИ-помощником для программирования, который его поддерживает:
@@ -212,7 +212,7 @@ relic.skill основан на открытом стандарте SKILL.md и 
 "Моего кота больше нет. Я хочу превратить его в Relic."
 "Помоги дистиллировать культуру нашей команды. Мы скоро разойдёмся."
 "Я хочу сохранить паттерн наших отношений."
-```text
+```
 ### Slash Commands
 
 ```text
@@ -220,7 +220,7 @@ relic.skill основан на открытом стандарте SKILL.md и 
 /relic-forge        — Сразу переносит в Soul Forge
 /relic-talk         — Позволяет поговорить с уже существующим Relic
 /relic-shield       — Защищает ваш Relic
-```text
+```
 ### CLI Tools
 
 ```bash
@@ -236,7 +236,7 @@ python scripts/relic_writer.py --data data.json --template human --slug grandma
 # Version management
 python scripts/version_manager.py snapshot --slug grandma --note "Первая версия"
 python scripts/version_manager.py rollback --slug grandma --version 1
-```text
+```
 ---
 
 ## Поддерживаемые платформы данных
@@ -302,7 +302,7 @@ relic.skill/
 ├── scripts/                    # 🔧 Утилитарные Python-скрипты x6
 ├── assets/                     # 🎨 Визуальные ресурсы
 └── docs/                       # 📚 Подробная документация
-```text
+```
 ---
 
 ## Этическое заявление

@@ -93,7 +93,7 @@ No solo personas. Todo merece un Relic.
      也没见你改
      [发送了一个太阳的表情包]
      早点睡啊
-```text
+```
 ### 🐱 Mimi · Gata naranja · 14 jin
 
 ```text
@@ -112,7 +112,7 @@ No solo personas. Todo merece un Relic.
  发出低沉的呼噜声。
  体重14斤，手腕已经麻了。
  但你没有动。]
-```text
+```
 ### 🏢 Spark Studio · Equipo startup de 5 personas
 
 ```text
@@ -129,7 +129,7 @@ CTO ❯ 你上次也是这么说的
 实习生 ❯ 哈哈哈哈哈哈哈
 CTO ❯ 行吧，这个需求不合理但我可以做
      发我文档
-```text
+```
 ---
 
 ## Arquitectura del alma en cuatro dimensiones
@@ -151,7 +151,7 @@ qué tono tiene           qué patrones sigue
         ❤️ Emoción (Emotion)
         Qué le da alegría, qué le duele,
         cómo expresa amor, cómo gestiona conflictos
-```text
+```
 Cada pieza de información lleva un nivel de evidencia:
 
 - `verbatim` — palabras exactas, sin cambiar una letra
@@ -169,12 +169,12 @@ Cada pieza de información lleva un nivel de evidencia:
 ```bash
 mkdir -p .claude/skills
 git clone https://github.com/Ylsssq926/relic.skill .claude/skills/relic
-```text
+```
 ### Opción 2: Instalación global (disponible en todos los proyectos)
 
 ```bash
 git clone https://github.com/Ylsssq926/relic.skill ~/.claude/skills/relic
-```text
+```
 ### Opción 3: Otros IDE / agentes
 
 relic.skill se basa en el estándar abierto SKILL.md y es compatible con cualquier asistente de programación con IA que lo admita:
@@ -212,7 +212,7 @@ En Claude Code / Kiro, solo di:
 "Mi gato se fue. Quiero convertirlo en un Relic"
 "Ayúdame a destilar la cultura de nuestro equipo. Estamos a punto de separarnos"
 "Quiero preservar el patrón de la relación entre nosotros"
-```text
+```
 ### Comandos Slash
 
 ```text
@@ -220,7 +220,7 @@ En Claude Code / Kiro, solo di:
 /relic-forge        — Entra directamente en el Soul Forge
 /relic-talk         — Habla con un Relic existente
 /relic-shield       — Protege tu Relic
-```text
+```
 ### Herramientas CLI
 
 ```bash
@@ -236,7 +236,7 @@ python scripts/relic_writer.py --data data.json --template human --slug grandma
 # Gestión de versiones
 python scripts/version_manager.py snapshot --slug grandma --note "Versión 1"
 python scripts/version_manager.py rollback --slug grandma --version 1
-```text
+```
 ---
 
 ## Plataformas de datos compatibles
@@ -302,7 +302,7 @@ relic.skill/
 ├── scripts/                    # 🔧 Scripts utilitarios de Python x6
 ├── assets/                     # 🎨 Recursos visuales
 └── docs/                       # 📚 Documentación en profundidad
-```text
+```
 ---
 
 ## Declaración ética

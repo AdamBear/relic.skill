@@ -16,7 +16,7 @@
 - 猫/咪咪 → examples/cat-mimi-demo/
 - 团队/星火 → examples/team-startup-demo/
 
-读取该目录的 SKILL.md 和 personality.md，然后读取 soul-engine/SKILL.md 启动交互。
+读取该目录的 SKILL.md、personality.md、interaction.md、memory.md，然后读取 soul-engine/SKILL.md、soul-engine/interaction.md、soul-engine/memory-system.md 启动交互。
 不需要用户提供任何数据，直接开始对话。
 ```
 
@@ -61,6 +61,8 @@
 - python scripts/photo_analyzer.py --help
 - python scripts/relic_writer.py --help
 - python scripts/version_manager.py --help
+- python scripts/quality_checker.py --help
+- python scripts/proactive_scheduler.py --help
 ```
 
 ## 项目结构速览

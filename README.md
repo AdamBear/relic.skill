@@ -94,7 +94,7 @@ relic.skill 是一个万物永生引擎。
      也没见你改
      [发送了一个太阳的表情包]
      早点睡啊
-```text
+```
 ### 🐱 咪咪 · 橘猫 · 14斤
 
 ```text
@@ -113,7 +113,7 @@ relic.skill 是一个万物永生引擎。
  发出低沉的呼噜声。
  体重14斤，手腕已经麻了。
  但你没有动。]
-```text
+```
 ### 🏢 星火工作室 · 5人创业团队
 
 ```text
@@ -130,7 +130,7 @@ CTO ❯ 你上次也是这么说的
 实习生 ❯ 哈哈哈哈哈哈哈
 CTO ❯ 行吧，这个需求不合理但我可以做
      发我文档
-```text
+```
 ---
 
 ## 四维灵魂架构
@@ -151,7 +151,7 @@ CTO ❯ 行吧，这个需求不合理但我可以做
         ❤️ 情感 (Emotion)
         什么让ta开心、什么让ta难过、
         怎么表达爱、怎么处理冲突
-```text
+```
 每条信息标注证据等级：
 
 - `verbatim` — 原话，一字不改
@@ -220,7 +220,7 @@ relic.skill 基于开放的 SKILL.md 标准，兼容所有支持该标准的 AI 
 "我家猫走了，我想把它做成 Relic"
 "帮我蒸馏我们团队的文化，大家要散了"
 "我想保存我和她之间的关系模式"
-```text
+```
 ### Slash 命令
 
 ```text
@@ -228,7 +228,7 @@ relic.skill 基于开放的 SKILL.md 标准，兼容所有支持该标准的 AI 
 /relic-forge        — 直接进入灵魂锻造炉
 /relic-talk         — 跟已有的 Relic 聊天
 /relic-shield       — 保护你的 Relic
-```text
+```
 ### CLI 工具
 
 ```bash
@@ -244,7 +244,7 @@ python scripts/relic_writer.py --data data.json --template human --slug grandma
 # 版本管理
 python scripts/version_manager.py snapshot --slug grandma --note "第一版"
 python scripts/version_manager.py rollback --slug grandma --version 1
-```text
+```
 ---
 
 ## 支持的数据平台

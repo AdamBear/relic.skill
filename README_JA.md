@@ -93,7 +93,7 @@ relic.skill は、あらゆるものを永生化するエンジンです。
      也没见你改
      [发送了一个太阳的表情包]
      早点睡啊
-```text
+```
 ### 🐱 咪咪 · 茶トラ · 14斤
 
 ```text
@@ -112,7 +112,7 @@ relic.skill は、あらゆるものを永生化するエンジンです。
  发出低沉的呼噜声。
  体重14斤，手腕已经麻了。
  但你没有动。]
-```text
+```
 ### 🏢 星火工作室 · 5人のスタートアップチーム
 
 ```text
@@ -129,7 +129,7 @@ CTO ❯ 你上次也是这么说的
 实习生 ❯ 哈哈哈哈哈哈哈
 CTO ❯ 行吧，这个需求不合理但我可以做
      发我文档
-```text
+```
 ---
 
 ## 四次元魂アーキテクチャ
@@ -150,7 +150,7 @@ CTO ❯ 行吧，这个需求不合理但我可以做
         ❤️ 感情 (Emotion)
         何がその人を喜ばせ、何が悲しませるか、
         どう愛を伝え、どう衝突を処理するか
-```text
+```
 各情報には証拠レベルを付けます：
 
 - `verbatim` — 原文、一字一句そのまま
@@ -168,12 +168,12 @@ CTO ❯ 行吧，这个需求不合理但我可以做
 ```bash
 mkdir -p .claude/skills
 git clone https://github.com/Ylsssq926/relic.skill .claude/skills/relic
-```text
+```
 ### 方法二：グローバルインストール（すべてのプロジェクトで利用可能）
 
 ```bash
 git clone https://github.com/Ylsssq926/relic.skill ~/.claude/skills/relic
-```text
+```
 ### 方法三：その他の IDE / Agent
 
 relic.skill はオープンな SKILL.md 標準に基づいており、この標準をサポートするすべての AI コーディングアシスタントで利用できます：
@@ -211,7 +211,7 @@ Claude Code / Kiro でそのままこう言ってください：
 "うちの猫がいなくなった。Relic にしたい"
 "うちのチーム文化を蒸留して。みんな解散するんだ"
 "私と彼女の関係パターンを残したい"
-```text
+```
 ### Slash コマンド
 
 ```text
@@ -219,7 +219,7 @@ Claude Code / Kiro でそのままこう言ってください：
 /relic-forge        — 直接、魂の鍛造炉に入る
 /relic-talk         — 既存の Relic と会話する
 /relic-shield       — あなたの Relic を守る
-```text
+```
 ### CLI ツール
 
 ```bash
@@ -235,7 +235,7 @@ python scripts/relic_writer.py --data data.json --template human --slug grandma
 # バージョン管理
 python scripts/version_manager.py snapshot --slug grandma --note "初版"
 python scripts/version_manager.py rollback --slug grandma --version 1
-```text
+```
 ---
 
 ## 対応データプラットフォーム
@@ -301,7 +301,7 @@ relic.skill/
 ├── scripts/                    # 🔧 Python ツールスクリプト x6
 ├── assets/                     # 🎨 ビジュアル素材
 └── docs/                       # 📚 詳細ドキュメント
-```text
+```
 ---
 
 ## 倫理声明

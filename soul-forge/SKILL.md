@@ -1,11 +1,13 @@
 ---
-name: soul-forge
+name: relic-forge
 description: >
   灵魂锻造炉 — 从多源数据中提取四维灵魂画像。
-  当用户说"帮我锻造/蒸馏/创建一个 Relic"时触发。
+  当用户说"帮我锻造/蒸馏/创建一个 Relic"或直接调用 /relic-forge 时触发。
   支持人类、宠物、关系、地方、团队、时刻等万物蒸馏。
-version: 1.0.0
+version: 1.1.1
 license: MIT
+user-invocable: true
+argument-hint: "描述你想锻造的对象，比如：我想永生我奶奶"
 ---
 
 # soul-forge — 灵魂锻造炉

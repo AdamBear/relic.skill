@@ -93,7 +93,7 @@ Not just people. Everything deserves a Relic.
      也没见你改
      [发送了一个太阳的表情包]
      早点睡啊
-```text
+```
 ### 🐱 Mimi · Orange Tabby · 14 jin
 
 ```text
@@ -112,7 +112,7 @@ Not just people. Everything deserves a Relic.
  发出低沉的呼噜声。
  体重14斤，手腕已经麻了。
  但你没有动。]
-```text
+```
 ### 🏢 Spark Studio · 5-Person Startup Team
 
 ```text
@@ -129,7 +129,7 @@ CTO ❯ 你上次也是这么说的
 实习生 ❯ 哈哈哈哈哈哈哈
 CTO ❯ 行吧，这个需求不合理但我可以做
      发我文档
-```text
+```
 ---
 
 ## The Four-Dimensional Soul Model
@@ -151,7 +151,7 @@ their tone              their patterns
         ❤️ Emotion
         What makes them happy, what hurts them,
         how they show love, how they handle conflict
-```text
+```
 Each piece of information is tagged with an evidence level:
 
 - `verbatim` — exact words, unchanged
@@ -169,12 +169,12 @@ Each piece of information is tagged with an evidence level:
 ```bash
 mkdir -p .claude/skills
 git clone https://github.com/Ylsssq926/relic.skill .claude/skills/relic
-```text
+```
 ### Option 2: Global install (available in every project)
 
 ```bash
 git clone https://github.com/Ylsssq926/relic.skill ~/.claude/skills/relic
-```text
+```
 ### Option 3: Other IDEs / Agents
 
 relic.skill is based on the open SKILL.md standard and is compatible with any AI coding assistant that supports it:
@@ -212,7 +212,7 @@ In Claude Code / Kiro, just say:
 "My cat is gone. I want to turn it into a Relic."
 "Help me distill our team culture. We’re about to go our separate ways."
 "I want to preserve the pattern of the relationship between us."
-```text
+```
 ### Slash Commands
 
 ```text
@@ -220,7 +220,7 @@ In Claude Code / Kiro, just say:
 /relic-forge        — Jump straight into the soul forge
 /relic-talk         — Chat with an existing Relic
 /relic-shield       — Protect your Relic
-```text
+```
 ### CLI Tools
 
 ```bash
@@ -236,7 +236,7 @@ python scripts/relic_writer.py --data data.json --template human --slug grandma
 # Version management
 python scripts/version_manager.py snapshot --slug grandma --note "Version 1"
 python scripts/version_manager.py rollback --slug grandma --version 1
-```text
+```
 ---
 
 ## Supported Data Platforms
@@ -302,7 +302,7 @@ relic.skill/
 ├── scripts/                    # 🔧 Python utility scripts x6
 ├── assets/                     # 🎨 Visual assets
 └── docs/                       # 📚 In-depth docs
-```text
+```
 ---
 
 ## Ethics Statement

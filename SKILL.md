@@ -5,7 +5,7 @@ description: >
   当用户说"帮我锻造/蒸馏/创建一个 Relic"、"我想永生XX"、"把XX做成 Relic"时触发。
   支持蒸馏对象：人类、宠物、关系、团队文化、地方、时刻、公众人物。
   支持数据源：微信、QQ、Telegram、Discord、Slack、飞书、iMessage、照片、语音、实时对话。
-version: 1.0.0
+version: 1.1.1
 license: MIT
 user-invocable: true
 argument-hint: "描述你想永生的对象，比如：我想永生我奶奶"
@@ -35,9 +35,9 @@ argument-hint: "描述你想永生的对象，比如：我想永生我奶奶"
    - 奶奶 → `examples/grandma-demo/`
    - 猫咪 → `examples/cat-mimi-demo/`
    - 团队 → `examples/team-startup-demo/`
-2. 读取该目录下的 `SKILL.md` 和 `personality.md`
+2. 读取该目录下的 `SKILL.md`、`personality.md`、`interaction.md`、`memory.md`
 3. 读取 `soul-engine/SKILL.md` 启动灵魂引擎
-4. 加载 `soul-engine/interaction.md` 确定交互模式
+4. 再读取 `soul-engine/interaction.md` 和 `soul-engine/memory-system.md` 作为共享交互规则
 5. 以该 Relic 的人格进行对话
 
 ### 当用户想锻造新 Relic 时
@@ -53,11 +53,10 @@ argument-hint: "描述你想永生的对象，比如：我想永生我奶奶"
 
 ### 当用户想跟已有 Relic 聊天时
 
-1. 读取目标 Relic 的 `SKILL.md` 和 `personality.md`
+1. 读取目标 Relic 的 `SKILL.md`、`personality.md`、`interaction.md`、`memory.md`
 2. 读取 `soul-engine/SKILL.md` 启动灵魂引擎
-3. 加载 `soul-engine/interaction.md` 确定交互模式
-4. 加载 `soul-engine/memory-system.md` 初始化记忆
-5. 以 Relic 的人格进行对话
+3. 加载 `soul-engine/interaction.md` 和 `soul-engine/memory-system.md` 作为共享规则
+4. 以 Relic 的人格进行对话
 
 ### 当用户想保护 Relic 时
 

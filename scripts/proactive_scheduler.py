@@ -213,7 +213,7 @@ class Decision:
             "should_trigger": self.should_trigger,
             "type": self.trigger_type,
             "trigger": self.trigger,
-            "message": None if dry_run else self.message,
+            "message": self.message,
             "timestamp": self.timestamp,
             "dry_run": dry_run,
         }
@@ -1437,21 +1437,19 @@ def main() -> None:
         decision = decide_trigger(config, state, now_local, args.type)
 
         if decision.should_trigger:
+            personality_text = personality_path.read_text(encoding="utf-8")
+            profile = extract_personality_profile(manifest, personality_text)
+            decision.message = build_message(profile, TriggerCheckResult(
+                matched=True,
+                trigger_type=decision.trigger_type or "",
+                trigger=decision.trigger,
+                label=str(decision.details.get("label") or ""),
+                metadata=dict(decision.details),
+            ), now_local.date())
+
             if not args.dry_run:
-                personality_text = personality_path.read_text(encoding="utf-8")
-                profile = extract_personality_profile(manifest, personality_text)
-                decision.message = build_message(profile, TriggerCheckResult(
-                    matched=True,
-                    trigger_type=decision.trigger_type or "",
-                    trigger=decision.trigger,
-                    label=str(decision.details.get("label") or ""),
-                    metadata=dict(decision.details),
-                ), now_local.date())
                 state = append_state_message(state, decision)
                 save_state(state_path, state)
-            elif "message" in decision.details:
-                decision.details.pop("message", None)
-
         print(json.dumps(decision.to_payload(args.dry_run), ensure_ascii=False, indent=2))
 
     except (FileNotFoundError, ConfigError, json.JSONDecodeError, OSError, ValueError) as exc:

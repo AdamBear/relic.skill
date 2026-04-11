@@ -93,7 +93,7 @@ relic.skill은 모든 것을 영생시키는 엔진입니다.
      也没见你改
      [发送了一个太阳的表情包]
      早点睡啊
-```text
+```
 ### 🐱 咪咪 · 치즈태비 · 14斤
 
 ```text
@@ -112,7 +112,7 @@ relic.skill은 모든 것을 영생시키는 엔진입니다.
  发出低沉的呼噜声。
  体重14斤，手腕已经麻了。
  但你没有动。]
-```text
+```
 ### 🏢 星火工作室 · 5인 창업 팀
 
 ```text
@@ -129,7 +129,7 @@ CTO ❯ 你上次也是这么说的
 实习生 ❯ 哈哈哈哈哈哈哈
 CTO ❯ 行吧，这个需求不合理但我可以做
      发我文档
-```text
+```
 ---
 
 ## 4차원 영혼 아키텍처
@@ -150,7 +150,7 @@ CTO ❯ 行吧，这个需求不合理但我可以做
         ❤️ 감정 (Emotion)
         무엇이 그 사람을 기쁘게 하고, 무엇이 슬프게 하는지,
         어떻게 사랑을 표현하고, 어떻게 갈등을 다루는지
-```text
+```
 각 정보에는 증거 레벨이 표시됩니다:
 
 - `verbatim` — 원문, 한 글자도 바꾸지 않음
@@ -168,12 +168,12 @@ CTO ❯ 行吧，这个需求不合理但我可以做
 ```bash
 mkdir -p .claude/skills
 git clone https://github.com/Ylsssq926/relic.skill .claude/skills/relic
-```text
+```
 ### 방법 2: 전역 설치 (모든 프로젝트에서 사용 가능)
 
 ```bash
 git clone https://github.com/Ylsssq926/relic.skill ~/.claude/skills/relic
-```text
+```
 ### 방법 3: 기타 IDE / Agent
 
 relic.skill은 개방형 SKILL.md 표준을 기반으로 하며, 이 표준을 지원하는 모든 AI 코딩 도우미와 호환됩니다:
@@ -211,7 +211,7 @@ Claude Code / Kiro에서 바로 이렇게 말하세요:
 "우리 집 고양이가 떠났어. Relic으로 남기고 싶어"
 "우리 팀 문화를 증류해줘. 이제 다들 흩어질 거야"
 "나와 그녀 사이의 관계 패턴을 남기고 싶어"
-```text
+```
 ### Slash 명령어
 
 ```text
@@ -219,7 +219,7 @@ Claude Code / Kiro에서 바로 이렇게 말하세요:
 /relic-forge        — 곧바로 영혼 단련로로 들어가기
 /relic-talk         — 이미 있는 Relic과 대화하기
 /relic-shield       — 당신의 Relic 지키기
-```text
+```
 ### CLI 도구
 
 ```bash
@@ -235,7 +235,7 @@ python scripts/relic_writer.py --data data.json --template human --slug grandma
 # 버전 관리
 python scripts/version_manager.py snapshot --slug grandma --note "초판"
 python scripts/version_manager.py rollback --slug grandma --version 1
-```text
+```
 ---
 
 ## 지원하는 데이터 플랫폼
@@ -301,7 +301,7 @@ relic.skill/
 ├── scripts/                    # 🔧 Python 도구 스크립트 x6
 ├── assets/                     # 🎨 시각 자료
 └── docs/                       # 📚 심화 문서
-```text
+```
 ---
 
 ## 윤리 선언

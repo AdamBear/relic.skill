@@ -5,6 +5,19 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.1] - 2026-04-11
+
+### Fixed
+
+- 📚 **README fence repair**: fixed malformed closing code fences across all root multilingual READMEs so installation and usage sections render correctly
+- 🧭 **Invocation consistency**: aligned `SKILL.md` and `FOR_AI.md` with the real Relic loading chain (`SKILL.md` + `personality.md` + `interaction.md` + `memory.md`)
+- ⚡ **Slash command parity**: made `relic-forge`, `relic-talk`, and `relic-shield` directly invocable to match README promises
+- ⏰ **proactive_scheduler.py**: `--dry-run` now returns the preview message instead of `message: null`
+- 📊 **quality_checker.py**: now understands both handwritten example Relics and `relic_writer.py` generated output
+- 🪟 **Windows CLI output**: improved UTF-8 stdout/stderr handling in `quality_checker.py` and `relic_writer.py`
+- 🧹 **Runtime hygiene**: `.proactive_state.json` is now ignored by git
+- 🗺️ **Roadmap status**: fixed the current-stage marker in `ROADMAP.md`
+
 ## [1.1.0] - 2026-04-09
 
 ### Added

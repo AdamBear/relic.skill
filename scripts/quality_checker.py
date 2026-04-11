@@ -144,6 +144,11 @@ def count_evidence(text: str) -> tuple[int, int, int]:
     v = len(re.findall(r"verbatim", text, re.IGNORECASE))
     a = len(re.findall(r"artifact", text, re.IGNORECASE))
     i = len(re.findall(r"impression", text, re.IGNORECASE))
+
+    # 兼容 relic_writer.py 生成的 markdown：用“来源：”作为轻量证据信号。
+    if v + a + i == 0:
+        artifact_like = len(re.findall(r"^\-\s*来源：", text, re.MULTILINE))
+        a += artifact_like
     return v, a, i
 
 
@@ -173,6 +178,19 @@ def check_vague(text: str) -> list[str]:
     return issues
 
 
+def extract_heading_sections(text: str, levels: tuple[int, ...] = (2, 3)) -> list[tuple[str, str]]:
+    """按 ##/### 标题切分章节，兼容 writer 产物和手写示例。"""
+    pattern = re.compile(rf"^({'|'.join('#' * level for level in levels)})\s+(.+)$", re.MULTILINE)
+    matches = list(pattern.finditer(text))
+    sections: list[tuple[str, str]] = []
+    for idx, match in enumerate(matches):
+        title = match.group(2).strip()
+        start = match.end()
+        end = matches[idx + 1].start() if idx + 1 < len(matches) else len(text)
+        sections.append((title, text[start:end].strip()))
+    return sections
+
+
 def analyze_personality(relic_dir: Path) -> list[DimensionScore]:
     """分析 personality.md 的四维覆盖度。"""
     path = relic_dir / "personality.md"
@@ -180,14 +198,24 @@ def analyze_personality(relic_dir: Path) -> list[DimensionScore]:
         return []
 
     text = path.read_text(encoding="utf-8")
-    sections = re.split(r"^##\s+", text, flags=re.MULTILINE)
+
+    # 两种格式都要兼容：
+    # 1) 手写示例：## 一、认知 ...（正文挂在下方多个 ### 中）
+    # 2) writer 产物：## 四维画像 / ### 1. 认知框架
+    top_sections_raw = re.split(r"^##\s+", text, flags=re.MULTILINE)
+    top_sections: list[tuple[str, str]] = []
+    for section in top_sections_raw[1:]:
+        title, _, body = section.partition("\n")
+        top_sections.append((title.strip(), body.strip()))
+
+    sub_sections = extract_heading_sections(text, levels=(3,))
 
     dimension_names = ["认知", "表达", "行为", "情感"]
     alt_names = {
-        "认知": ["cognition", "习性", "决策"],
-        "表达": ["expression", "互动", "沟通"],
-        "行为": ["behavior", "生活", "节奏"],
-        "情感": ["emotion", "情绪", "感受"],
+        "认知": ["cognition", "习性", "决策", "认知框架"],
+        "表达": ["expression", "互动", "沟通", "表达风格"],
+        "行为": ["behavior", "生活", "节奏", "行为习惯", "生活节奏"],
+        "情感": ["emotion", "情绪", "感受", "情感特征"],
     }
 
     results: list[DimensionScore] = []
@@ -197,11 +225,19 @@ def analyze_personality(relic_dir: Path) -> list[DimensionScore]:
         search_terms = [dim_name] + alt_names.get(dim_name, [])
 
         matched_section = ""
-        for section in sections:
-            first_line = section.split("\n")[0].lower()
-            if any(term.lower() in first_line for term in search_terms):
-                matched_section = section
+
+        # 先匹配手写示例里的顶层 ## 维度标题
+        for title, body in top_sections:
+            if any(term.lower() in title.lower() for term in search_terms):
+                matched_section = body
                 break
+
+        # 再匹配 writer 产物里的 ### 子标题
+        if not matched_section:
+            for title, body in sub_sections:
+                if any(term.lower() in title.lower() for term in search_terms):
+                    matched_section = body
+                    break
 
         if matched_section:
             ds.word_count = count_chinese_words(matched_section)
@@ -226,12 +262,19 @@ def analyze_memory(relic_dir: Path) -> tuple[int, int]:
         return 0, 0
 
     text = path.read_text(encoding="utf-8")
-    sections = re.split(r"^##\s+", text, flags=re.MULTILINE)
-    memory_count = max(0, len(sections) - 1)  # 去掉文件头
+    sections = extract_heading_sections(text, levels=(2, 3))
 
+    # 优先识别 writer 生成的 ### 记忆锚点；否则退回到手写示例的 ## 段落。
+    memory_sections = [(title, body) for title, body in sections if re.match(r"\d+\.", title)]
+    if not memory_sections:
+        memory_sections = [(title, body) for title, body in sections if title.startswith("记忆") or re.match(r"\d+\.", title)]
+    if not memory_sections:
+        memory_sections = sections
+
+    memory_count = len(memory_sections)
     with_evidence = 0
-    for section in sections[1:]:
-        if re.search(r"(verbatim|artifact|impression)", section, re.IGNORECASE):
+    for _, body in memory_sections:
+        if re.search(r"(verbatim|artifact|impression|^\-\s*来源：)", body, re.IGNORECASE | re.MULTILINE):
             with_evidence += 1
 
     return memory_count, with_evidence
@@ -244,21 +287,25 @@ def analyze_interaction(relic_dir: Path) -> int:
         return 0
 
     text = path.read_text(encoding="utf-8")
-    scenes = re.findall(r"^##\s+.*(场景|模式|Scene|scenario)", text, re.MULTILINE | re.IGNORECASE)
-    if not scenes:
-        scenes = re.findall(r"^##\s+", text, flags=re.MULTILINE)
-    return len(scenes)
+    sections = extract_heading_sections(text, levels=(2, 3))
+    numbered = [title for title, _ in sections if re.match(r"\d+\.", title)]
+    if numbered:
+        return len(numbered)
+
+    scenes = [title for title, _ in sections if re.search(r"场景|模式|scene|scenario", title, re.IGNORECASE)]
+    return len(scenes) if scenes else len(sections)
 
 
 def analyze_manifest(relic_dir: Path) -> bool:
-    """检查 manifest.json 格式是否正确。"""
+    """检查 manifest.json 格式是否正确，兼容手写示例和 relic_writer 生成格式。"""
     path = relic_dir / "manifest.json"
     if not path.exists():
         return False
     try:
         data = json.loads(path.read_text(encoding="utf-8"))
-        required = ["slug", "display_name", "relic_type", "version"]
-        return all(k in data for k in required)
+        current_schema = all(k in data for k in ["slug", "display_name", "relic_type", "version"])
+        writer_schema = all(k in data for k in ["schema_version", "slug", "title", "template"])
+        return current_schema or writer_schema
     except (json.JSONDecodeError, KeyError):
         return False
 
@@ -362,9 +409,10 @@ def print_report(report: RelicReport, verbose: bool = False) -> None:
 # ---------------------------------------------------------------------------
 
 def main() -> None:
-    # 确保 stdout 使用 UTF-8
+    # 确保 Windows 终端下 stdout / stderr 都使用 UTF-8
     import io
     sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace")
+    sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding="utf-8", errors="replace")
 
     parser = argparse.ArgumentParser(
         description="relic.skill 质量评估器 — 检查 Relic 的四维覆盖度、证据分布和内容具体性",

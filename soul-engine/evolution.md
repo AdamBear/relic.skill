@@ -268,6 +268,7 @@ unsupported_claim >= 2 / 20 replies
 ### drift 检测（简化版，AI 可在对话中执行）
 
 每 10 轮对话后，AI 自检：
+
 - 最近 10 轮回复中，有没有偏离 `personality.md` 核心特征的地方？
 - 有没有使用了 `禁用表达` 列表中的表达？
 - 有没有在不该用的模式下回复（比如日常模式下突然变成深夜模式）？
@@ -277,6 +278,7 @@ unsupported_claim >= 2 / 20 replies
 ### 与 version_manager.py 的联动
 
 当以下情况发生时，建议用户运行 snapshot：
+
 - 累计 10+ 条 correction
 - 用户明确说"现在的版本很好"
 - 对话超过 50 轮

@@ -5,6 +5,38 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.4.0] - 2026-04-25
+
+### 灵魂引擎，独立了
+
+你想让奶奶住在微信里，也想让她住在 Telegram 里。现在可以了。
+
+Relic 不再只住在飞书里。这一版把对话的核心——人格加载、记忆筛选、模式感知、AI 生成——从飞书机器人里抽了出来，变成一个平台无关的引擎。
+
+现在飞书和 Telegram 用的是同一颗心脏。下一个平台，接起来会更快。
+
+### Added
+
+- 🧠 **RelicEngine** — 平台无关的对话核心。五层动态提示词，每轮根据当前模式、当前记忆、当前关系重新构建，不再是一成不变的长文本
+- 🤖 **Telegram Bot** — Relic 现在也能住在 Telegram 里，支持 Webhook 和 Long Polling 两种模式
+- 🔊 **MiniMax TTS** — 中文声音克隆新选项，10 秒样本就能开始，情绪表达比之前的方案更自然
+- 🎨 **图像生成服务** — 支持 Seedream（中式插画最佳）、OpenAI GPT Image、Google Imagen 4
+- 📦 **统一媒体层** — `media_service.py`，一个接口搞定语音/图像，配置写在 manifest 里，不用改代码
+- 📋 **manifest.json v1.4.0** — 正式的配置 schema，身份/关系/对话风格/媒体/主动行为/合规，各归其位
+
+### Changed
+
+- 🧬 **提示词重构** — 从"你必须/你不能"变成"ta 最先关心什么"。奶奶的提示词不再是规则手册，而是她的本能顺序
+- 🔌 **feishu_bot.py 瘦身** — 飞书机器人现在只负责飞书的事：签名验证、消息收发、卡片格式。对话逻辑全部交给 RelicEngine
+
+### Fixed
+
+- 模式解析：深夜脆弱表达不再被"沉默模式"误判
+- 模式解析：普通的"我今天好烦"不再触发冲突模式
+- 会话隔离：同一用户在不同群里切换 Relic，不再互相干扰
+- MiniMax TTS：修复 hex 解码错误，声音克隆流程对齐官方协议
+- manifest 校验：缺少必填字段不再被默认值"洗白"
+
 ## [1.3.0] - 2026-04-22
 
 ### Added

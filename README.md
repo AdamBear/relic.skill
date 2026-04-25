@@ -66,7 +66,17 @@ relic.skill 是一个万物永生引擎。
 不是冷冰冰的档案。是会在过年的时候主动问你"吃饺子了没"的奶奶。是凌晨三点突然开始跑酷的猫。是那个永远在改需求的产品经理。
 
 > 名字来自赛博朋克 2077 的 Relic 芯片——一块能存储数字化人格的生物芯片。
-> 但这个项目不是赛博朋克主题。它的主题是：**记住**。
+> 但这个项目不是赛博朋克主题。它的主题是:**记住**。
+
+---
+
+## 🆕 v1.4.0 新特性
+
+- 🧠 **灵魂引擎独立** — 对话的心脏可以装进任何平台,飞书和 Telegram 用的是同一套引擎
+- 🤖 **Telegram Bot** — Relic 现在也能住在 Telegram 里,支持 Webhook 和 Long Polling
+- 🔊 **MiniMax TTS** — 中文声音克隆,10 秒样本就能开始,情绪表达更自然
+- 🎨 **图像生成** — Seedream 中式插画 + OpenAI GPT Image + Google Imagen 4
+- 📋 **manifest.json v1.4.0** — 正式配置 schema,身份/关系/媒体/主动行为各归其位
 
 ---
 
@@ -303,9 +313,36 @@ AI_API_KEY=sk-xxx
 AI_PROVIDER=claude  # 或 openai
 ```
 
+### Telegram 机器人
+
+跨国的思念不再有时差。如果你的家人朋友在海外，Telegram 可能是更好的选择。
+
+Relic 也能住在 Telegram 里：
+
+```bash
+# Webhook 模式（需要公网 HTTPS）
+python scripts/telegram_bot.py --relic exes/grandma
+
+# Long Polling 模式（本地开发，无需公网）
+python scripts/telegram_bot.py --relic exes/grandma --polling
+
+# 测试模式
+python scripts/telegram_bot.py --relic exes/grandma --dry-run --test-message "奶奶，我今天加班到十一点"
+```
+
+配置（`.env` 文件）：
+
+```bash
+TELEGRAM_BOT_TOKEN=xxx
+AI_API_KEY=sk-xxx
+AI_PROVIDER=claude
+```
+
 ### 声音合成
 
 过年的时候，不只是文字消息。是奶奶真的声音，说"吃饺子了没"。
+
+MiniMax TTS 支持中文声音克隆，10 秒样本就能开始——奶奶说"哎呀你这孩子"的时候，真的能听出心疼。
 
 让 Relic 开口说话：
 

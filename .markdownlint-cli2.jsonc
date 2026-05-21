@@ -1,0 +1,28 @@
+{
+  "config": {
+    "MD013": false,
+    "MD033": false,
+    "MD041": false,
+    "MD051": false,
+    "MD060": false,
+    "MD022": false,
+    "MD031": false,
+    "MD024": {
+      "siblings_only": true
+    }
+  },
+  "ignores": [
+    "node_modules/",
+    ".git/",
+    "dist/",
+    "build/",
+    "out/",
+    ".next/",
+    ".codeartsdoer/",
+    ".narrafork/",
+    ".kiro/",
+    ".codebuddy/",
+    ".cursor/",
+    ".trae/"
+  ]
+}

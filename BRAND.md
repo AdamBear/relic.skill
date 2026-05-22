@@ -46,7 +46,7 @@
 
 ### 正面 prompt 关键词
 
-```
+```text
 poetic memory archive aesthetic,
 soft amber candlelight against deep cosmic blue,
 floating fragments of memory (text, images, light particles),
@@ -58,7 +58,7 @@ literary illustration quality
 
 ### 反面（绝不要）
 
-```
+```text
 NO: gravestone, NO: ashes / urn imagery,
 NO: black-white memorial photo, NO: angel wings cliché,
 NO: ghost / paranormal imagery, NO: AI brain in jar,
